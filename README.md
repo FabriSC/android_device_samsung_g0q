@@ -1,10 +1,6 @@
 # Android device tree for samsung SM-S906E (g0q)
 
 ```
-#
-# Copyright (C) 2025 The Android Open Source Project
-# Copyright (C) 2025 SebaUbuntu's TWRP device tree generator
-#
-# SPDX-License-Identifier: Apache-2.0
-#
+initial build
+- Samsung s22 Plus SM-906B
 ```
