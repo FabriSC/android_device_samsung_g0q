@@ -39,12 +39,10 @@ on property:ro.boot.usbcontroller=*
 on fs
     wait /dev/block/platform/soc/${ro.boot.bootdevice}
     symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
-    
-service vibrator-service /vendor/bin/vendor.qti.hardware.vibrator@1.2-service
-    class hal
-    user system
-    group system input
-    seclabel u:r:recovery:s0
+# Haptic feedback
+ on property:twrp.modules.loaded=true
+     write /sys/class/leds/vibrator/trigger transient
+     start vibratorfeature-hal-service
 
 on boot
     start vibrator-service
