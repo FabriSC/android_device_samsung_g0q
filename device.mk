@@ -24,6 +24,16 @@ TARGET_RECOVERY_DEVICE_MODULES += \
     libion \
     libdmabufheap
 
+# f2fs utilities
+PRODUCT_PACKAGES += \
+    sg_write_buffer \
+    f2fs_io \
+    check_f2fs
+
+# Userdata checkpoint
+PRODUCT_PACKAGES += \
+    checkpoint_gc
+
 RECOVERY_LIBRARY_SOURCE_FILES += \
     $(TARGET_OUT_SHARED_LIBRARIES)/libion.so \
     $(TARGET_OUT_SHARED_LIBRARIES)/libdmabufheap.so
