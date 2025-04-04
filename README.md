@@ -2,5 +2,5 @@
 
 ```
 initial build
-- Samsung s22 Plus SM-906B
+- Samsung Galaxy S22+ - SM-906E
 ```
