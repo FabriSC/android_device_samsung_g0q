@@ -111,8 +111,19 @@ TARGET_USES_MKE2FS := true
 BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := erofs
 TARGET_COPY_OUT_VENDOR := vendor
 
-# Properties
-TARGET_VENDOR_PROP += device/samsung/g0q/vendor.prop
+# Extras
+TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
+TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
+
+# Vibrator
+TW_SUPPORT_INPUT_AIDL_HAPTICS := true
+TW_SUPPORT_INPUT_AIDL_HAPTICS_FIX_OFF := true
+
+TARGET_RECOVERY_DEVICE_MODULES += libexpat android.hardware.vibrator-V2-ndk
+RECOVERY_LIBRARY_SOURCE_FILES += \
+     $(TARGET_OUT_SHARED_LIBRARIES)/libexpat.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/android.hardware.vibrator-V2-ndk.so
+
 
 AB_OTA_UPDATER := false
 
@@ -142,7 +153,7 @@ TW_LOAD_VENDOR_MODULES_EXCLUDE_GKI := true
 
 # TWRP specific build flags
 TW_THEME := portrait_hdpi
-TW_DEVICE_VERSION := FabriSC
+TW_DEVICE_VERSION := FabriSC.
 TW_FRAMERATE := 120
 TW_MAX_BRIGHTNESS := 510
 TW_DEFAULT_BRIGHTNESS := 255
