@@ -56,5 +56,12 @@ on property:crypto.ready=0
 on property:twrp.user.0.decrypt=0
     umount /vendor/firmware_mnt
 
+service linkblobs /system/bin/linkblobs.sh
+    user root
+    group root
+    disabled
+    oneshot
+    seclabel u:r:recovery:s0
+
 on property:ro.build.version.security_patch=*
     setprop ro.vendor.build.security_patch ${ro.build.version.security_patch}
