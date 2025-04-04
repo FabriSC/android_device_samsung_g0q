@@ -27,6 +27,13 @@
 
 import /init.recovery.qcom_decrypt.rc
 
+on early-init
+    start linkblobs
+
+on init
+    setprop prepdecrypt.loglevel 2
+    setprop prepdecrypt.setpatch true
+
 on init
     # to cut charging battery path
     write /sys/class/power_supply/battery/siop_level 0
@@ -52,4 +59,13 @@ on property:crypto.ready=1
 on property:crypto.ready=0
     stop keymaster-sb-4-0
     stop keymint-default
+    
+service linkblobs /system/bin/linkblobs.sh
+    user root
+    group root
+    disabled
+    oneshot
+    seclabel u:r:recovery:s0
 
+on property:ro.build.version.security_patch=*
+    setprop ro.vendor.build.security_patch ${ro.build.version.security_patch}
