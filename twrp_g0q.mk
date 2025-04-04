@@ -18,7 +18,7 @@ $(call inherit-product, device/samsung/g0q/device.mk)
 PRODUCT_DEVICE := g0q
 PRODUCT_NAME := twrp_g0q
 PRODUCT_BRAND := samsung
-PRODUCT_MODEL := SM-S906E
+PRODUCT_MODEL := Samsung Galaxy S22+
 PRODUCT_MANUFACTURER := samsung
 
 PRODUCT_GMS_CLIENTID_BASE := android-samsung
